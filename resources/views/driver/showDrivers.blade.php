@@ -1,6 +1,7 @@
 <x-layout>
 
-    <table class="table">
+<div class="container">
+    <table class="table width-full">
         <thead class="thead-light">
           <tr>
             <th scope="col">ID</th>
@@ -29,5 +30,5 @@
           @endforeach
         </tbody>
       </table>
-
+    </div>
 </x-layout>

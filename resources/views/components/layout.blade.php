@@ -19,7 +19,7 @@
             <section class="col"></section>
         </div> --}}
     </div>
-    <main>
+    <main >
      {{$slot}}
     </main>
 
