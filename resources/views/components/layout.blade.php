@@ -8,8 +8,8 @@
 
     <title>Data Driven Smart Garbage</title>
 </head>
-<body>
-    @include('navbar')
+<body>  
+    <x-navbar/>
     <div class="container-fluid">
         <h2 class="text-center alert alert-danger">Registration Form</h2>
         {{-- <div class="row">

@@ -17,7 +17,7 @@ class DriverController extends Controller
    
         $drivers = Driver::all();
         
-        return view('driver.showDriver', ['drivers'=>$drivers]);
+        return view('driver.showDrivers', ['drivers'=>$drivers]);
     }
 
     /**
@@ -61,9 +61,9 @@ class DriverController extends Controller
     {
         $driver = Driver::find($id);
         $drivers = Driver::all();
-        return view('driver', ['drivers'=>$drivers, 'driver'=>$driver,'layout'=>'show']);
+        return view('driver.show', ['drivers'=>$drivers, 'driver'=>$driver]);
     }
-    
+
     /**
      * Show the form for editing the specified resource.
      *
@@ -74,7 +74,7 @@ class DriverController extends Controller
     {
         $driver = Driver::find($id);
         $drivers = Driver::all();
-        return view('driver', ['drivers'=>$drivers, 'driver'=>$driver,'layout'=>'edit']);
+        return view('driver.edit', ['drivers'=>$drivers, 'driver'=>$driver]);
     }
 
     /**
