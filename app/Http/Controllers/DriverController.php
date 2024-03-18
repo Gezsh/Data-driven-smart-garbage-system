@@ -33,7 +33,7 @@ class DriverController extends Controller
         return view('driver.register', ['drivers'=>$drivers]);
         
     }
-
+         
     /**
      * Store a newly created resource in storage.
      *
@@ -125,3 +125,5 @@ class DriverController extends Controller
         return redirect('/');
     }
 }
+
+

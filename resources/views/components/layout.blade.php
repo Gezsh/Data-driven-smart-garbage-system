@@ -55,6 +55,6 @@
 <footer class="bg-blue-400 text-white h-14 opacity-90 flex items-center justify-between p-4">
     <p class="font-bold">Copyright &copy; 2024, All Rights reserved</p>
 </footer>
-
+<x-flash-message/>
 </body>
 </html>
