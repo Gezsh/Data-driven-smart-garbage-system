@@ -24,7 +24,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', "App\Http\Controllers\DriverController@index");
 Route::get('/edit/{id}', "App\Http\Controllers\DriverController@edit");
 Route::get('/show/{id}', "App\Http\Controllers\DriverController@show");
-Route::get('/create', "App\Http\Controllers\DriverController@create");
+Route::get('/register', "App\Http\Controllers\DriverController@register");
 Route::get('/delete/{id}', "App\Http\Controllers\DriverController@destroy");
 Route::post('/store', "App\Http\Controllers\DriverController@store");
 Route::post('/update/{id}', "App\Http\Controllers\DriverController@update");

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 use App\Models\Driver;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
+
 //use Illuminate\Support\Facades\DB;
 
 class DriverController extends Controller
@@ -25,10 +27,10 @@ class DriverController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function register()
     {
         $drivers = Driver::all();
-        return view('driver.create', ['drivers'=>$drivers]);
+        return view('driver.register', ['drivers'=>$drivers]);
         
     }
 
@@ -40,14 +42,28 @@ class DriverController extends Controller
      */
     public function store(Request $request)
     {
-        $driver = new Driver();
-        $driver->reg = $request->input('reg');
-        $driver->firstName = $request->input('firstName');
-        $driver->lastName = $request->input('lastName');
-        $driver->email = $request->input('email');
-        $driver->phonenumber = $request->input('phonenumber');
-        $driver->save();
-        return redirect('/');
+        // $driver = new Driver();
+        // $driver->reg = $request->input('reg');
+        // $driver->firstName = $request->input('firstName');
+        // $driver->lastName = $request->input('lastName');
+        // $driver->email = $request->input('email');
+        // $driver->phonenumber = $request->input('phonenumber');
+        // $driver->save();
+
+        $formFields=$request->validate([
+            
+            'reg'=>['required',Rule::unique('drivers','reg')],
+            'firstName'=>'required',
+            'lastName'=>'required',
+            'email'=>['required','email'],
+            'phonenumber'=>'required'
+
+        ]);
+
+        
+        Driver::create($formFields);
+
+        return redirect('/')->with('message','Driver registerd successfuly');
 
     }
 
