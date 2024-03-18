@@ -2,30 +2,59 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
-    <title>Data Driven Smart Garbage</title>
+    <link rel="icon" href="images/favicon.ico">
+    <script src="//unpkg.com/alpinejs" defer></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        laravel: "#ef3b2d",
+                    },
+                },
+            },
+        };
+    </script>
+    <title>Data Driven Smart garbage collection system</title>
+    <style>
+        /* Adjustments to ensure navbar stays fixed and footer stays at bottom */
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        main {
+            flex: 1; /* Allow main content to grow to fill remaining space */
+            overflow-y: auto; /* Enable vertical scrolling for main content */
+        }
+    </style>
 </head>
-<body>  
-    <x-navbar/>
-    <div class="container-fluid">
-        <h2 class="text-center alert alert-danger">Registration Form</h2>
-        {{-- <div class="row">
-            <section class="col">
-          
-            </section>
-            <section class="col"></section>
-        </div> --}}
+<body class="bg-gray-100">
+
+<!-- Navigation Bar -->
+<nav class="flex justify-between items-center p-4 bg-white shadow-md fixed top-0 left-0 w-full z-50">
+    <a href="/" class="text-xl font-bold text-blue-500">Smart Garbage Collection System</a>
+    <ul class="flex space-x-6 text-lg">
+        <li><a href="/register" class="hover:text-laravel"><i class="fa-solid fa-user-plus"></i> Register</a></li>
+        <li><a href="/login" class="hover:text-laravel"><i class="fa-solid fa-arrow-right-to-bracket"></i> Login</a></li>
+    </ul>
+</nav>
+
+<!-- Main Content -->
+<main class="container mx-auto py-8">
+    <!-- Content Slot -->
+    <div class="overflow-y-auto">
+        {{$slot}}
     </div>
-    <main>
-     {{$slot}}
-    </main>
+</main>
 
+<!-- Footer -->
+<footer class="bg-blue-400 text-white h-14 opacity-90 flex items-center justify-between p-4">
+    <p class="font-bold">Copyright &copy; 2024, All Rights reserved</p>
+</footer>
 
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
 </html>
