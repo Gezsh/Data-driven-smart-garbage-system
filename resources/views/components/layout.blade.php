@@ -49,7 +49,13 @@
     <div class="overflow-y-auto">
         {{$slot}}
     </div>
+<<<<<<< HEAD
+    <main >
+     {{$slot}}
+    </main>
+=======
 </main>
+>>>>>>> ce3f4673eb2200e3f731049d311b6c82b42bf23e
 
 <!-- Footer -->
 <footer class="bg-blue-400 text-white h-14 opacity-90 flex items-center justify-between p-4">

@@ -17,12 +17,11 @@ class DriverFactory extends Factory
     public function definition(): array
     {
         return [
-            'reg' => $this->faker->randomNumber(),
-            'firstName'=>$this->faker->name(),
-            'lastName'=>$this->faker->name(),
-            'email'=>$this->faker->email(),
-            'phoneNumber'=>$this->faker->phoneNumber(),
-            
+            'reg' => $this->faker->unique()->bothify('??###'),
+            'firstName' => $this->faker->firstName,
+            'lastName' => $this->faker->lastName,
+            'email' => $this->faker->unique()->safeEmail,
+            'phonenumber' => $this->faker->phoneNumber,
         ];
     }
 }
