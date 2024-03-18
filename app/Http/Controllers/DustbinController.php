@@ -29,7 +29,7 @@ class DustbinController extends Controller
         ]);
         Dustbin::create($formfields);
 
-        return redirect('/')->with('success', 'Dustbin saved!');
+        return redirect('/dustbin')->with('success', 'Dustbin saved!');
     }
     public static function show($id)
     {
@@ -40,7 +40,7 @@ class DustbinController extends Controller
     {
         $dustbin = Dustbin::find($id);
         $dustbin->delete();
-        return redirect('/');
+        return redirect('/dustbin');
     }
     public function edit($id)
     {
@@ -59,6 +59,6 @@ class DustbinController extends Controller
         //     'capacity' => 'required',
         // ]);
         $dustbin->save();
-        return redirect('/')->with('success', 'Dustbin updated!');
+        return redirect('/dustbin')->with('success', 'Dustbin updated!');
     }
 }
