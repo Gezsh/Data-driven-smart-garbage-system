@@ -1,5 +1,5 @@
 <x-layout>
-
+  @include('partials\_search')
   <div class="mt-10">
     <div class="overflow-x-auto">
       <table class="table-auto w-full border-collapse">

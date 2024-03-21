@@ -1,4 +1,10 @@
 <x-layout>
+  <div class="flex justify-between item-center mt-6">
+
+    @include('partials\_search_dustbin')
+    @include('partials\_filter')
+  </div>
+
   <div class="mt-10">
     <div class="overflow-x-auto">
       <table class="table-auto w-full border-collapse">
@@ -12,8 +18,9 @@
   </thead>
     <tbody>
       @unless ($dustbins->isEmpty())
-          
+      
       @foreach($dustbins as $dustbin)
+
       <tr>
         <td class="border px-4 py-2" >{{ $dustbin->id }}</td>
         <td class="border px-4 py-2">{{ $dustbin->location }}</td>

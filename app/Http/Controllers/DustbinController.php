@@ -12,7 +12,8 @@ class DustbinController extends Controller
 
     public function index()
     {
-        return view('dustbin.index', ['dustbins' => Dustbin::latest()->get()]);
+        $dustbins = Dustbin::latest()->filter(request(['capacity', 'search']))->get();
+        return view('dustbin.index', ['dustbins' => $dustbins]);
     }
 
     public static function create()

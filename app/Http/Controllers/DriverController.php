@@ -16,10 +16,8 @@ class DriverController extends Controller
      */
     public function index()
     {
-   
-        $drivers = Driver::all();
-        
-        return view('driver.showDrivers', ['drivers'=>$drivers]);
+
+        return view('driver.showDrivers', ['drivers' => Driver::latest()->filter(request(['search']))->get()]);
     }
 
     /**
