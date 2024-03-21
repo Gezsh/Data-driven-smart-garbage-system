@@ -40,6 +40,7 @@
     <ul class="flex space-x-6 text-lg">
         <li><a href="/register" class="hover:text-laravel"><i class="fa-solid fa-user-plus"></i> Register</a></li>
         <li><a href="/login" class="hover:text-laravel"><i class="fa-solid fa-arrow-right-to-bracket"></i> Login</a></li>
+        <li><a href="/dustbin" class="hover:text-laravel"><i class="fa-solid fa-arrow-right-to-bracket"></i> Dustbins</a></li>
     </ul>
 </nav>
 
@@ -49,13 +50,7 @@
     <div class="overflow-y-auto">
         {{$slot}}
     </div>
-<<<<<<< HEAD
-    <main >
-     {{$slot}}
-    </main>
-=======
 </main>
->>>>>>> ce3f4673eb2200e3f731049d311b6c82b42bf23e
 
 <!-- Footer -->
 <footer class="bg-blue-400 text-white h-14 opacity-90 flex items-center justify-between p-4">

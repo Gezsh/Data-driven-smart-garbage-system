@@ -47,6 +47,12 @@
                         Login</a
                      >
                 </li>
+                <li>
+                    <a href="/dustbin" 
+                        ><i class="fa-solid fa-arrow-right-to-bracket"></i>
+                        Dustbins</a
+                     >
+                </li>
 
             </ul>
         </nav>
