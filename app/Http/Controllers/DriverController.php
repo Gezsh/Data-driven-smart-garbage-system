@@ -17,9 +17,9 @@ class DriverController extends Controller
     public function index()
     {
    
-        $drivers = Driver::all();
+        //$drivers = Driver::all();
         
-        return view('driver.showDrivers', ['drivers'=>$drivers]);
+        return view('driver.showDrivers', ['drivers'=>Driver::latest()->filter(request(['search']))->get()]);
     }
 
     /**
@@ -63,7 +63,7 @@ class DriverController extends Controller
         
         Driver::create($formFields);
 
-        return redirect('/')->with('message','Driver registerd successfuly');
+        return redirect('/')->with('message','Driver registerd sucessfully');
 
     }
 
@@ -109,7 +109,7 @@ class DriverController extends Controller
         $driver->email = $request->input('email');
         $driver->phonenumber = $request->input('phonenumber');
         $driver->save();
-        return redirect('/');
+        return redirect('/')->with('message','Driver updated sucessfully!');
     }
 
     /**
@@ -122,7 +122,7 @@ class DriverController extends Controller
     {
         $driver = Driver::find($id);
         $driver->delete();
-        return redirect('/');
+        return redirect('/')->with('message','Driver deleted sucessfully');
     }
 }
 

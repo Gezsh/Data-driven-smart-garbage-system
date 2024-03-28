@@ -8,13 +8,23 @@ use Illuminate\Http\Request;
 
 class DustbinController extends Controller
 {
-    //
+    
 
     public function index()
     {
-        return view('dustbin.index', ['dustbins' => Dustbin::latest()->get()]);
+        $query = Dustbin::query()->orderBy('capacity', 'desc');
+    
+        if (request()->has('search')) {
+            $query->filter(request(['search']));
+        }
+    
+        $dustbins = $query->get();
+    
+        return view('dustbin.index', compact('dustbins'));
     }
-
+    
+    
+     
     public static function create()
     {
         return view('dustbin.create');
@@ -29,7 +39,9 @@ class DustbinController extends Controller
         ]);
         Dustbin::create($formfields);
 
-        return redirect('/dustbin')->with('success', 'Dustbin saved!');
+        return redirect('/dustbin')->with('message', 'Dustbin saved sucessfully!');
+
+        
     }
     public static function show($id)
     {
@@ -40,7 +52,10 @@ class DustbinController extends Controller
     {
         $dustbin = Dustbin::find($id);
         $dustbin->delete();
-        return redirect('/dustbin');
+
+        return redirect('/dustbin')->with('message','Dustibin deleted sucessfully');
+
+
     }
     public function edit($id)
     {
@@ -59,6 +74,9 @@ class DustbinController extends Controller
         //     'capacity' => 'required',
         // ]);
         $dustbin->save();
-        return redirect('/dustbin')->with('success', 'Dustbin updated!');
+
+        return redirect('/dustbin')->with('message', 'Dustbin updated sucessfully!');
+
     }
 }
+

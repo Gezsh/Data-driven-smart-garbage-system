@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\DriverController;
 use App\Http\Controllers\DustbinController;
 use Illuminate\Support\Facades\Route;
@@ -21,13 +22,13 @@ use Illuminate\Support\Facades\Route;
 
 
 
-Route::get('/', "App\Http\Controllers\DriverController@index");
-Route::get('/edit/{id}', "App\Http\Controllers\DriverController@edit");
-Route::get('/show/{id}', "App\Http\Controllers\DriverController@show");
-Route::get('/register', "App\Http\Controllers\DriverController@register");
-Route::get('/delete/{id}', "App\Http\Controllers\DriverController@destroy");
-Route::post('/store', "App\Http\Controllers\DriverController@store");
-Route::post('/update/{id}', "App\Http\Controllers\DriverController@update");
+Route::get('/', [DriverController::class,'index']);
+Route::get('/edit/{id}', [DriverController::class ,'edit']);
+Route::get('/show/{id}', [DriverController::class,'show']);
+Route::get('/register', [DriverController::class,'register']);
+Route::get('/delete/{id}', [DriverController::class,'destroy']);
+Route::post('/store', [DriverController::class,'store']);
+Route::post('/update/{id}', [DriverController::class,'update']);
 
 Route::get('/dustbin', [DustbinController::class, 'index']);
 Route::get('/dustbin/show/{id}', [DustbinController::class, 'show']);
@@ -36,5 +37,8 @@ Route::get('/dustbin/create', [DustbinController::class, 'create']);
 Route::get('/dustbin/delete/{id}', [DustbinController::class, 'destroy']);
 Route::post('/dustbin/store', [DustbinController::class, 'store']);
 Route::put('/dustbin/update/{id}', [DustbinController::class, 'update']);
+
+
+Route::put('/admin/register', [AdminController::class, 'register']);
 
 
