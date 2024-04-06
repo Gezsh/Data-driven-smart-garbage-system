@@ -12,7 +12,7 @@ class DustbinController extends Controller
 
     public function index()
     {
-        $query = Dustbin::query()->orderBy('capacity', 'desc');
+        $query = Dustbin::query()->orderBy('level', 'desc');
     
         if (request()->has('search')) {
             $query->filter(request(['search']));
@@ -22,7 +22,16 @@ class DustbinController extends Controller
     
         return view('dustbin.index', compact('dustbins'));
     }
-    
+
+    public static function getAllDustbin()
+    {
+        $dustbins = Dustbin::all();
+        $response = [
+            'success' => true,
+            'data' => $dustbins,
+        ];
+        return response()->json($response);
+    }
     
      
     public static function create()

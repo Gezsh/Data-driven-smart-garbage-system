@@ -13,8 +13,9 @@ return new class extends Migration
     {
         Schema::create('dustbins', function (Blueprint $table) {
             $table->id();
-            $table->string('location');
-            $table->string('capacity');
+            $table->decimal('latitude', 11, 7); // Latitude with 10 total digits and 8 decimal places
+            $table->decimal('longitude', 11, 7); // Longitude with 11 total digits and 8 decimal places
+            $table->bigInteger('level');
 
             $table->timestamps();
         });

@@ -31,6 +31,8 @@ Route::post('/store', [DriverController::class,'store']);
 Route::post('/update/{id}', [DriverController::class,'update']);
 
 Route::get('/dustbin', [DustbinController::class, 'index']);
+Route::get('/dustbin/getAll', [DustbinController::class, 'getAllDustbin']);
+
 Route::get('/dustbin/show/{id}', [DustbinController::class, 'show']);
 Route::get('/dustbin/edit/{id}', [DustbinController::class, 'edit']);
 Route::get('/dustbin/create', [DustbinController::class, 'create']);

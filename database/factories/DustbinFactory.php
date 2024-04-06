@@ -17,8 +17,9 @@ class DustbinFactory extends Factory
     public function definition(): array
     {
         return [
-            'location' => $this->faker->city(),
-            'capacity' => $this->faker->numberBetween(1, 100),
+            'latitude' => $this->faker->latitude(),
+            'longitude' => $this->faker->longitude(),
+            'level' => $this->faker->numberBetween(1, 100),
         ];
     }
 }
